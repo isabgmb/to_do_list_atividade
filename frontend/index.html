@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi API TodoList</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     TELA DE AUTENTICAÇÃO (Login / Cadastro)
+     ══════════════════════════════════════ -->
+<div id="authScreen" class="auth-screen">
+    <div class="auth-card">
+        <h1>📝 Multi API TodoList</h1>
+        <p class="auth-subtitle">Sistema distribuído com autenticação</p>
+
+        <!-- Abas -->
+        <div class="auth-tabs">
+            <button class="tab-btn active" id="tabLogin" onclick="mostrarAba('login')">Entrar</button>
+            <button class="tab-btn" id="tabCadastro" onclick="mostrarAba('cadastro')">Cadastrar</button>
+        </div>
+
+        <!-- Mensagem de erro/sucesso -->
+        <div id="authMsg" class="auth-msg hidden"></div>
+
+        <!-- Formulário de Login -->
+        <form id="formLogin" class="auth-form">
+            <label>E-mail</label>
+            <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+            <label>Senha</label>
+            <input type="password" id="loginSenha" placeholder="••••••" required>
+            <button type="submit" class="btn-primary" id="btnLogin">Entrar</button>
+        </form>
+
+        <!-- Formulário de Cadastro -->
+        <form id="formCadastro" class="auth-form hidden">
+            <label>Nome</label>
+            <input type="text" id="cadNome" placeholder="Seu nome" required>
+            <label>E-mail</label>
+            <input type="email" id="cadEmail" placeholder="seu@email.com" required>
+            <label>Senha</label>
+            <input type="password" id="cadSenha" placeholder="Mínimo 6 caracteres" required minlength="6">
+            <button type="submit" class="btn-primary" id="btnCadastro">Criar conta</button>
+        </form>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     APP PRINCIPAL (após login)
+     ══════════════════════════════════════ -->
+<div id="appScreen" class="hidden">
+    <header class="app-header">
+        <div class="header-left">
+            <h1>📝 Multi API TodoList</h1>
+        </div>
+        <div class="header-right">
+            <span id="nomeUsuario" class="usuario-nome"></span>
+            <button class="btn-logout" onclick="logout()">Sair</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Nova Tarefa -->
+        <div class="card">
+            <h2>Nova Tarefa</h2>
+            <form id="todoForm">
+                <input type="text" id="title" placeholder="Título da tarefa" required>
+                <button type="submit" class="btn-primary">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- Lista de Tarefas -->
+        <div class="card">
+            <h2>Minhas Tarefas</h2>
+            <div id="loadingTarefas" class="loading hidden">Carregando...</div>
+            <ul id="todoList"></ul>
+            <p id="semTarefas" class="sem-tarefas hidden">Nenhuma tarefa encontrada. Crie a primeira!</p>
+        </div>
+
+        <!-- Estatísticas (Serviço 3) -->
+        <div class="card stats-card">
+            <h2>📊 Estatísticas <span class="badge-servico">Serviço 3 – Python</span></h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="total">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat-item concluida">
+                    <span class="stat-number" id="concluidas">0</span>
+                    <span class="stat-label">Concluídas</span>
+                </div>
+                <div class="stat-item pendente">
+                    <span class="stat-number" id="pendentes">0</span>
+                    <span class="stat-label">Pendentes</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status dos Serviços -->
+        <div class="card">
+            <h2>🔗 Status dos Serviços</h2>
+            <div class="servicos-grid">
+                <div class="servico-item">
+                    <span class="servico-dot" id="dotS1"></span>
+                    <span>Serviço 1 – Laravel (Tarefas)</span>
+                    <span class="servico-porta">:8000</span>
+                </div>
+                <div class="servico-item">
+                    <span class="servico-dot" id="dotS2"></span>
+                    <span>Serviço 2 – Laravel (Logs)</span>
+                    <span class="servico-porta">:8002</span>
+                </div>
+                <div class="servico-item">
+                    <span class="servico-dot" id="dotS3"></span>
+                    <span>Serviço 3 – Python (Análise)</span>
+                    <span class="servico-porta">:8001</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>

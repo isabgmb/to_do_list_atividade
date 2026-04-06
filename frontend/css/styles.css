@@ -1,0 +1,466 @@
+/* ══════════════════════════════════════════════
+   Reset & Base
+   ══════════════════════════════════════════════ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ══════════════════════════════════════════════
+   TELA DE AUTENTICAÇÃO
+   ══════════════════════════════════════════════ */
+.auth-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.auth-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.auth-card h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 6px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #718096;
+    font-size: 0.85rem;
+    margin-bottom: 28px;
+}
+
+/* Abas */
+.auth-tabs {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #f7fafc;
+    color: #718096;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: #667eea;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Formulários de auth */
+.auth-form label {
+    display: block;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 5px;
+    margin-top: 14px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.auth-form input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* Mensagens */
+.auth-msg {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    margin-bottom: 12px;
+}
+
+.auth-msg.erro {
+    background: #fff5f5;
+    color: #c53030;
+    border: 1px solid #fed7d7;
+}
+
+.auth-msg.sucesso {
+    background: #f0fff4;
+    color: #276749;
+    border: 1px solid #c6f6d5;
+}
+
+/* ══════════════════════════════════════════════
+   HEADER DO APP
+   ══════════════════════════════════════════════ */
+.app-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.app-header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.usuario-nome {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.btn-logout {
+    padding: 7px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* ══════════════════════════════════════════════
+   CONTAINER PRINCIPAL
+   ══════════════════════════════════════════════ */
+.container {
+    max-width: 760px;
+    margin: 32px auto;
+    padding: 0 16px;
+}
+
+/* ══════════════════════════════════════════════
+   CARDS
+   ══════════════════════════════════════════════ */
+.card {
+    background: #fff;
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+    font-size: 1.05rem;
+    color: #2d3748;
+    margin-bottom: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ══════════════════════════════════════════════
+   FORMULÁRIO DE TAREFA
+   ══════════════════════════════════════════════ */
+#todoForm {
+    display: flex;
+    gap: 10px;
+}
+
+#todoForm input {
+    flex: 1;
+    padding: 11px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#todoForm input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* ══════════════════════════════════════════════
+   BOTÕES
+   ══════════════════════════════════════════════ */
+.btn-primary {
+    padding: 11px 22px;
+    background: #667eea;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 16px;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background: #5a67d8;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+}
+
+/* ══════════════════════════════════════════════
+   LISTA DE TAREFAS
+   ══════════════════════════════════════════════ */
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 12px 10px;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.15s;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li:hover {
+    background: #f7fafc;
+    border-radius: 6px;
+}
+
+.todo-titulo {
+    flex: 1;
+    font-size: 0.95rem;
+    color: #2d3748;
+}
+
+li.completed .todo-titulo {
+    text-decoration: line-through;
+    color: #a0aec0;
+}
+
+.actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.actions button:hover {
+    opacity: 0.82;
+    transform: scale(1.05);
+}
+
+.btn-complete {
+    background: #48bb78;
+    color: #fff;
+}
+
+.btn-delete {
+    background: #fc8181;
+    color: #fff;
+}
+
+.loading {
+    text-align: center;
+    color: #718096;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.sem-tarefas {
+    text-align: center;
+    color: #a0aec0;
+    padding: 30px;
+    font-size: 0.95rem;
+}
+
+.erro-item {
+    color: #c53030;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+/* ══════════════════════════════════════════════
+   ESTATÍSTICAS
+   ══════════════════════════════════════════════ */
+.stats-card {
+    background: linear-gradient(135deg, #667eea11, #764ba211);
+    border: 1px solid #667eea22;
+}
+
+.badge-servico {
+    font-size: 0.7rem;
+    background: #667eea;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 16px 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #667eea;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.stat-item.concluida .stat-number {
+    color: #48bb78;
+}
+
+.stat-item.pendente .stat-number {
+    color: #ed8936;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: #718096;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════════════
+   STATUS DOS SERVIÇOS
+   ══════════════════════════════════════════════ */
+.servicos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.servico-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #4a5568;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #f7fafc;
+}
+
+.servico-porta {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: #a0aec0;
+    font-family: monospace;
+}
+
+.servico-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cbd5e0;
+    flex-shrink: 0;
+    transition: background 0.4s;
+}
+
+.servico-dot.online {
+    background: #48bb78;
+    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.2);
+}
+
+.servico-dot.offline {
+    background: #fc8181;
+    box-shadow: 0 0 0 3px rgba(252, 129, 129, 0.2);
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVO
+   ══════════════════════════════════════════════ */
+@media (max-width: 600px) {
+    .app-header {
+        padding: 14px 16px;
+    }
+
+    .app-header h1 {
+        font-size: 1.1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+    }
+
+    #todoForm {
+        flex-direction: column;
+    }
+}

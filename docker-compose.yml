@@ -1,0 +1,76 @@
+version: '3.9'
+
+services:
+
+  # ──────────────────────────────────────────
+  # Serviço 1 – API de Tarefas (Laravel + Sanctum)
+  # Porta: 8000
+  # ──────────────────────────────────────────
+  servico1:
+    build:
+      context: ./servico1-laravel
+      dockerfile: Dockerfile
+    container_name: todolist_s1
+    ports:
+      - "8000:8000"
+    environment:
+      APP_KEY: base64:GERE_COM_php_artisan_key_generate
+      DB_CONNECTION: sqlite
+      LOG_SERVICE_URL: http://servico2:8002/api
+      LOG_SERVICE_SECRET: segredo-interno-123
+      ANALISE_SERVICE_URL: http://servico3:8001/api
+    volumes:
+      - s1_data:/var/www/html/database
+    depends_on:
+      - servico2
+      - servico3
+    networks:
+      - todolist_net
+
+  # ──────────────────────────────────────────
+  # Serviço 2 – Gerador de Logs (Laravel + Eloquent)
+  # Porta: 8002
+  # ──────────────────────────────────────────
+  servico2:
+    build:
+      context: ./servico2-laravel-logs
+      dockerfile: Dockerfile
+    container_name: todolist_s2
+    ports:
+      - "8002:8002"
+    environment:
+      APP_KEY: base64:GERE_COM_php_artisan_key_generate
+      DB_CONNECTION: sqlite
+      INTERNAL_SECRET: segredo-interno-123
+    volumes:
+      - s2_data:/var/www/html/database
+    networks:
+      - todolist_net
+
+  # ──────────────────────────────────────────
+  # Serviço 3 – Analisador (FastAPI + SQLAlchemy)
+  # Porta: 8001
+  # ──────────────────────────────────────────
+  servico3:
+    build:
+      context: ./servico3-python
+      dockerfile: Dockerfile
+    container_name: todolist_s3
+    ports:
+      - "8001:8001"
+    environment:
+      DATABASE_URL: sqlite:///./todolist_analise.db
+      INTERNAL_SECRET: segredo-interno-123
+    volumes:
+      - s3_data:/app
+    networks:
+      - todolist_net
+
+volumes:
+  s1_data:
+  s2_data:
+  s3_data:
+
+networks:
+  todolist_net:
+    driver: bridge
