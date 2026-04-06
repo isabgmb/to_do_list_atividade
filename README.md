@@ -3,6 +3,14 @@
 Sistema de TODO List com 3 serviços independentes, autenticação JWT/Sanctum e frontend integrado.
 
 ---
+Alunos:
+Ana Luiza Martins Aires - 2310847
+Davi Montandon de Siqueira - 2311965
+Isabella Guerra de Moraes Barbosa - 2320494
+Igor Alexandre Ribeiro de Paulo - 2313308
+Santhiago Lopes Abreu - 2321229
+
+---
 
 ## 🏗️ Arquitetura
 
